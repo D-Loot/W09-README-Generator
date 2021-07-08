@@ -1,59 +1,45 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  const badgeSelection = function(licenseType){
-    switch(licenseType){
-      case "Dan Looten License":
-        return ``;
-      case "Trilogy Insurance License":
-        return ``;
-      case "Washinton University License":
-        return ``;
-      default "none":
-        return ``;
-    }
+  switch(license){
+    case "Dan Looten License":
+      return `![Dan Looten Badge](../assets/images/lootBadge.PNG)`;
+    case "Trilogy Insurance License":
+      return `![Trilogy Insurance](../assets/images/TrilogyEdBadge.PNG)`;
+    case "Washinton University License":
+      return `![Washinton University](../assets/images/washu-log.PNG)`;
+    default:
+      return ``;
   }
-  return badgeSelection
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  const linkSelection = function(licenseType){
-    switch(licenseType){
-      case "Dan Looten License":
-        return ``;
-      case "Trilogy Insurance License":
-        return ``;
-      case "Washinton University License":
-        return ``;
-      default "none":
-        return ``;
-    }
+  switch(license){
+    case "Dan Looten License":
+      return `[www.d-loot.github.io/Portfolio/](https://d-loot.github.io/Portfolio/)`;
+    case "Trilogy Insurance License":
+      return `[Trilogy Ed](https://www.trilogyed.com/)`;
+    case "Washinton University License":
+      return `[Washinton University](https://wustl.edu/)`;
+    default:
+      return ``;
   }
-  return linkSelection
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  const sectionSelection = function(licenseType){
-    switch(licenseType){
-      case "Dan Looten License":
-        return `---
-
-        © 2021 Dan Looten Web Development. Confidential and Proprietary. All Rights Reserved.`;
-      case "Trilogy Insurance License":
-        return `---
-
-        © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.`;
-      case "Washinton University License":
-        return `---
-
-        © 2021 Washinton University. Confidential and Proprietary. All Rights Reserved.`;
-      default "none":
-        return ``;
-    }
+  switch(license){
+    case "Dan Looten License":
+      return `© 2021 Dan Looten Web Development. Confidential and Proprietary. All Rights Reserved.`;
+    case "Trilogy Insurance License":
+      return `© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.`;
+    case "Washinton University License":
+      return `© 2021 Washinton University. Confidential and Proprietary. All Rights Reserved.`;
+    default:
+      return ``;
   }
 }
 
@@ -72,18 +58,35 @@ function generateMarkdown(data) {
 
 ## Description
 
+${data.projectDescription}
+
 ## Installation Instructions
+
+${data.instalInst}
 
 ## Usage Information
 
+${data.usageInfo}
+
 ## Contribution Guidelines
+
+${data.contributeInfo}
 
 ## Test Instructions
 
+${data.testInst}
+
 ## Contact
+
+GitHub: [https://github.com/${data.ghName}/](https://github.com/${data.ghName}/)
+
+Email: [${data.email}](mailto:${data.email})
 
 ## License
 
+${renderLicenseBadge(data.license)} ${renderLicenseLink(data.license)}
+
+${renderLicenseSection(data.license)}
 `;
 }
 
