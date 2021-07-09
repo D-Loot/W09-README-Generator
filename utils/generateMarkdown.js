@@ -3,11 +3,11 @@
 function renderLicenseBadge(license) {
   switch(license){
     case "Dan Looten License":
-      return `![Dan Looten Badge](../assets/images/lootBadge.PNG)`;
+      return `![Dan Looten Badge](./assets/lootBadge.PNG)`;
     case "Trilogy Insurance License":
-      return `![Trilogy Insurance](../assets/images/TrilogyEdBadge.PNG)`;
+      return `![Trilogy Insurance](./assets/TrilogyEdBadge.PNG)`;
     case "Washinton University License":
-      return `![Washinton University](../assets/images/washu-log.PNG)`;
+      return `![Washinton University](./assets/washu-log.PNG)`;
     default:
       return ``;
   }
@@ -47,6 +47,8 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
+  ${renderLicenseBadge(data.license)}
+
 ## Table of Contents
 - [Description](#description)
 - [Installation Instructions](#installation-instructions)
@@ -76,7 +78,7 @@ ${data.contributeInfo}
 
 ${data.testInst}
 
-## Contact
+## Questions?
 
 GitHub: [https://github.com/${data.ghName}/](https://github.com/${data.ghName}/)
 
@@ -84,7 +86,7 @@ Email: [${data.email}](mailto:${data.email})
 
 ## License
 
-${renderLicenseBadge(data.license)} ${renderLicenseLink(data.license)}
+${renderLicenseLink(data.license)}
 
 ${renderLicenseSection(data.license)}
 `;

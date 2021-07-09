@@ -18,9 +18,6 @@ const questions = [
 ];
 
 
-// function writeToFile(fileName, data) {
-//   fs.appendFile(fileName, data, (err) => err ? console.error(err) : console.log('Readme file created.')
-// }
 // TODO: Create a function to initialize app
 function init() {
   inquirer
@@ -77,13 +74,12 @@ function init() {
         name: "filename",
       },
     ]).then((response) => {
-    // console.log(response)
     readmeText = generateMarkdown(response);
 
 // TODO: Create a function to write README file
     fs.writeFile(`${response.filename}.md`,readmeText, function (err) {
       if (err) throw err;
-      console.log('Saved!');
+      console.log(`${response.filename}.md Created!`);
     })
     })
   }
